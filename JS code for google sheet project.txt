@@ -1,0 +1,22 @@
+function doGet(e) { 
+
+var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/...");
+var sheet = ss.getSheetByName("Sheet1");
+
+  addUser(e,sheet);
+}
+
+function doPost(e) { 
+  var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/...");
+  var sheet = ss.getSheetByName("Sheet1"); 
+  
+  addUser(e,sheet);
+}
+
+
+function addUser(e,sheet) {
+  var name = e.parameter.name ; 
+  var location = e.parameter.location ;
+
+  sheet.appendRow([name,location]);
+}
